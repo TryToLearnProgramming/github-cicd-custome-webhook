@@ -1,0 +1,14 @@
+In this code:
+
+The Flask web framework is used to create a simple web server.
+When a POST request is received at the /webhook endpoint, the function webhook_handler() is called.
+The event type is extracted from the request headers, and you should implement security checks (such as comparing SECRET_KEY) to ensure the request is legitimate.
+Depending on the event type (in this example, we're handling the "push" event), you can customize the code to trigger specific scripts. In this case, we're triggering main.sh.
+The subprocess.run() function is used to execute the shell script.
+The server runs on IP address 0.0.0.0 and port 8080.
+Remember that this code is a basic example and lacks the necessary security measures. For production use, you must implement proper authentication, payload validation, and error handling to ensure the webhook's security and reliability.
+
+
+
+################# can be use if the pipeline build is completed ####################
+curl -X POST -H "Content-Type: application/json" -H "X-GitHub-Event: workflow_run" -d '{"action":"requested","workflow_run":{"status":"queued"},"repository":{"name":"readRepo"}}' http://34.204.86.35:8080/webhook
