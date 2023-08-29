@@ -1,18 +1,7 @@
 #/bin/bash
 
-if [ "$1" == "on" ]; then
+sudo docker stop $(sudo docker ps -aq)
+sudo docker rm $(sudo docker ps -aq)
+sudo docker rmi $(sudo docker images -f "dangling=true" -q)
 
- 
-
-# Remove dangling container
-docker rmi $(docker images -f "dangling=true" -q)
-
-echo "Deploying app with docker"
-docker-compose up --build -d
-
-
-
-elif [ "$1" == "off" ]; then
-
-echo "Stopping docker deployment"
-docker-compose down
+sudo docker run -d --rm -p 80:80 --name web sami203/demo-docker:latest

@@ -11,4 +11,4 @@ Remember that this code is a basic example and lacks the necessary security meas
 
 
 ################# can be use if the pipeline build is completed ####################
-curl -X POST -H "Content-Type: application/json" -H "X-GitHub-Event: workflow_run" -d '{"action":"requested","workflow_run":{"status":"queued"},"repository":{"name":"readRepo"}}' http://34.204.86.35:8080/webhook
+curl -s -o /dev/null -X POST -H "Content-Type: application/json" -H "X-GitHub-Event: workflow_run" -d '{"action":"requested","workflow_run":{"status":"queued"},"repository":{"name":"readRepo"}}' http://54.224.4.9:8080/webhook/
