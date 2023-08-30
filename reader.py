@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Define a secret key to validate the webhook requests
 # SECRET_KEY = "your_secret_key_here"
 
-SCRIPTS_DIR = "./scripts"
+SCRIPTS_DIR = "/home/ubuntu/scripts"
 
 # Define a route to receive the GitHub webhook events
 @app.route('/webhook/', methods=['POST'])

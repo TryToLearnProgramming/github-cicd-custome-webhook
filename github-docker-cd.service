@@ -1,0 +1,10 @@
+[Unit]
+Description=Keeping my sources fresher than Arch Linux
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ubuntu/reader.py
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
